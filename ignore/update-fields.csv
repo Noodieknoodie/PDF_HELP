@@ -1,0 +1,322 @@
+ID,original name,new name,type
+1,IA Firm Name Please print,ia_firm_name,text
+2,IA Master Account Number,ia_master_account,text
+3,Service Team,service_team,text
+4,IA Contact Name if followup is required,ia_contact_name,text
+5,IA Telephone Number,ia_phone,text
+6,IA Email Address,ia_email,text
+7,Is your firm or a principal employee or related person of your firm an owner executor guardian conservator or custodian of this account,firm_is_custodian,checkbox
+8,relatives of you or your firm members,firm_holds_other_assets,checkbox
+9,Ask your Advisor about digital onboarding for opening new accounts in the future,digital_onboarding_note,text
+10,Schwab One,account_type_schwab_one,checkbox
+11,Schwab One with Margin not available for Custodial Conservatorship Guardianship or Estate accounts,account_type_margin,checkbox
+12,Individual,reg_individual,checkbox
+13,Tenants by the Entirety,reg_tenants_entirety,checkbox
+14,Conservatorship,reg_conservatorship,checkbox
+15,Custodial Section 12 optional Under Laws of State,reg_custodial,checkbox
+16,Estate,reg_estate,checkbox
+17,Joint Tenants with Rights of Survivorship,reg_joint_rights,checkbox
+18,Community Property,reg_community_property,checkbox
+19,Guardianship,reg_guardianship,checkbox
+20,Tenants in Common,reg_tenants_common,checkbox
+21,Community Property with Rights of Survivorship,reg_community_rights,checkbox
+22,Age of Termination,custodial_age_termination,text
+23,undefined,custodial_state,text
+24,undefined_2,estate_type,text
+25,Decedents First Name,decedent_first_name,text
+26,Decedents Middle Name,decedent_middle_name,text
+27,Decedents Last Name,decedent_last_name,text
+28,Decedents Social Security Number,decedent_ssn,text
+29,Tax ID Number of the Estate,estate_tax_id,text
+30,Account Number,account_number,text
+31,Name First,primary_first_name,text
+32,Middle,primary_middle_name,text
+33,Last,primary_last_name,text
+34,Suffix,primary_suffix,text
+35,Social SecurityTax ID Number,primary_ssn,text
+36,Date of Birth mmddyyyy,primary_dob,text
+37,Preferred Name or Alias if applicable,primary_preferred_name,text
+38,HomeLegal Street Address no PO boxes,primary_street_address,text
+39,City,primary_city,text
+40,State or Province,primary_state,text
+41,Zip or Postal Code,primary_zip,text
+42,Country,primary_country,text
+43,Mailing Address Include mailing address if different from homelegal address PO boxes may be used,primary_mailing_address,text
+44,City_2,primary_mailing_city,text
+45,State or Province_2,primary_mailing_state,text
+46,Zip or Postal Code_2,primary_mailing_zip,text
+47,Country_2,primary_mailing_country,text
+48,Telephone Number,primary_phone,text
+49,Mobile Number,primary_mobile,text
+50,Work Number,primary_work_phone,text
+51,Extension,primary_work_ext,text
+52,Email Address leave field blank for minors,primary_email,text
+53,Mothers Maiden Name,primary_mothers_maiden,text
+54,USA,primary_citizen_usa,checkbox
+55,Other,primary_citizen_other,checkbox
+56,ID Number and Type Please select only one box and provide the relevant information below,primary_citizen_other_country,text
+57,USA_2,primary_residence_usa,checkbox
+58,Other_2,primary_residence_other,checkbox
+59,Country of Legal Residence Select only one,primary_residence_country,text
+60,Passport,primary_id_passport,checkbox
+61,Drivers License,primary_id_license,checkbox
+62,GovtIssued ID,primary_id_govt,checkbox
+63,Identification Number,primary_id_number,text
+64,Country of Issuance,primary_id_country,text
+65,State of Issuance if applicable,primary_id_state,text
+66,Issue Date mmddyyyy,primary_id_issue_date,text
+67,Expiration Date mmddyyyy,primary_id_exp_date,text
+68,Employed,primary_employment_employed,checkbox
+69,SelfEmployed,primary_employment_self,checkbox
+70,Retired,primary_employment_retired,checkbox
+71,Homemaker,primary_employment_homemaker,checkbox
+72,Student,primary_employment_student,checkbox
+73,Not Employed,primary_employment_unemployed,checkbox
+74,Business OwnerSelfEmployed,primary_occupation_owner,checkbox
+75,ExecutiveSenior Management,primary_occupation_executive,checkbox
+76,Medical Professional,primary_occupation_medical,checkbox
+77,Legal Professional,primary_occupation_legal,checkbox
+78,Accounting Professional,primary_occupation_accounting,checkbox
+79,Consultant,primary_occupation_consultant,checkbox
+80,Other specify,primary_occupation_other,checkbox
+81,undefined_3,primary_occupation_other_text,text
+82,Financial ServicesBanking Professional,primary_occupation_financial,checkbox
+83,Information Technology Professional,primary_occupation_it,checkbox
+84,Other Professional,primary_occupation_professional,checkbox
+85,ClericalAdministrative Services,primary_occupation_clerical,checkbox
+86,Foreign Government Employee nonUS,primary_occupation_foreign_govt,checkbox
+87,Military,primary_occupation_military,checkbox
+88,Educator,primary_occupation_educator,checkbox
+89,SalesMarketing,primary_occupation_sales,checkbox
+90,US Government Employee federalstatelocal,primary_occupation_us_govt,checkbox
+91,TradeService labormanufacturingproduction,primary_occupation_trade,checkbox
+92,Employer NameBusiness Name,primary_employer_name,text
+93,Business Street Address no PO boxes,primary_employer_address,text
+94,City_3,primary_employer_city,text
+95,State or Province_3,primary_employer_state,text
+96,Zip or Postal Code_3,primary_employer_zip,text
+97,Country_3,primary_employer_country,text
+98,No_3,primary_finra_no,checkbox
+99,Yes If Yes you must attach a letter from your or your immediate family members employer or affiliated brokerdealer approving,primary_finra_yes,checkbox
+100,undefined_4,primary_finra_company,text
+101,No_4,primary_director_no,checkbox
+102,Yes If Yes enter company name,primary_director_yes,checkbox
+103,and trading symbol,primary_director_company,text
+104,undefined_5,primary_director_symbol,text
+105,Name First_2,trust_contact1_first,text
+106,Middle_2,trust_contact1_middle,text
+107,Last_2,trust_contact1_last,text
+108,Suffix_2,trust_contact1_suffix,text
+109,Spouse,trust_contact1_rel_spouse,checkbox
+110,Partner,trust_contact1_rel_partner,checkbox
+111,Child,trust_contact1_rel_child,checkbox
+112,Parent,trust_contact1_rel_parent,checkbox
+113,Sibling,trust_contact1_rel_sibling,checkbox
+114,Friend,trust_contact1_rel_friend,checkbox
+115,Other_3,trust_contact1_rel_other,checkbox
+116,Mailing Address no PO boxes,trust_contact1_address,text
+117,City_4,trust_contact1_city,text
+118,State or Province_4,trust_contact1_state,text
+119,Zip or Postal Code_4,trust_contact1_zip,text
+120,Country_4,trust_contact1_country,text
+121,Telephone Number_2,trust_contact1_phone,text
+122,Mobile Number_2,trust_contact1_mobile,text
+123,Email Address,trust_contact1_email,text
+124,Name First_3,trust_contact2_first,text
+125,Middle_3,trust_contact2_middle,text
+126,Last_3,trust_contact2_last,text
+127,Suffix_3,trust_contact2_suffix,text
+128,Spouse_2,trust_contact2_rel_spouse,checkbox
+129,Partner_2,trust_contact2_rel_partner,checkbox
+130,Child_2,trust_contact2_rel_child,checkbox
+131,Parent_2,trust_contact2_rel_parent,checkbox
+132,Sibling_2,trust_contact2_rel_sibling,checkbox
+133,Friend_2,trust_contact2_rel_friend,checkbox
+134,Other_4,trust_contact2_rel_other,checkbox
+135,Mailing Address no PO boxes_2,trust_contact2_address,text
+136,City_5,trust_contact2_city,text
+137,State or Province_5,trust_contact2_state,text
+138,Zip or Postal Code_5,trust_contact2_zip,text
+139,Country_5,trust_contact2_country,text
+140,Telephone Number_3,trust_contact2_phone,text
+141,Mobile Number_3,trust_contact2_mobile,text
+142,Email Address_2,trust_contact2_email,text
+143,Name First_4,secondary_first_name,text
+144,Middle_4,secondary_middle_name,text
+145,Last_4,secondary_last_name,text
+146,Suffix_4,secondary_suffix,text
+147,Social SecurityTax ID Number_2,secondary_ssn,text
+148,Date of Birth mmddyyyy_2,secondary_dob,text
+149,Preferred Name or Alias if applicable_2,secondary_preferred_name,text
+150,HomeLegal Street Address no PO boxes_2,secondary_street_address,text
+151,City_6,secondary_city,text
+152,State or Province_6,secondary_state,text
+153,Zip or Postal Code_6,secondary_zip,text
+154,Country_6,secondary_country,text
+155,Mailing Address Include mailing address if different from homelegal address PO boxes may be used_2,secondary_mailing_address,text
+156,City_7,secondary_mailing_city,text
+157,State or Province_7,secondary_mailing_state,text
+158,Zip or Postal Code_7,secondary_mailing_zip,text
+159,Country_7,secondary_mailing_country,text
+160,Telephone Number_4,secondary_phone,text
+161,Mobile Number_4,secondary_mobile,text
+162,Work Number_2,secondary_work_phone,text
+163,Extension_2,secondary_work_ext,text
+164,Email Address_3,secondary_email,text
+165,Mothers Maiden Name_2,secondary_mothers_maiden,text
+166,USA_3,secondary_citizen_usa,checkbox
+167,Other_5,secondary_citizen_other,checkbox
+168,ID Number and Type Please select only one box and provide the relevant information below_2,secondary_citizen_other_country,text
+169,USA_4,secondary_residence_usa,checkbox
+170,Other_6,secondary_residence_other,checkbox
+171,Country of Legal Residence Select only one_2,secondary_residence_country,text
+172,Passport_2,secondary_id_passport,checkbox
+173,Drivers License_2,secondary_id_license,checkbox
+174,GovtIssued ID_2,secondary_id_govt,checkbox
+175,Identification Number_2,secondary_id_number,text
+176,Country of Issuance_2,secondary_id_country,text
+177,State of Issuance if applicable_2,secondary_id_state,text
+178,Issue Date mmddyyyy_2,secondary_id_issue_date,text
+179,Expiration Date mmddyyyy_2,secondary_id_exp_date,text
+180,Employed_2,secondary_employment_employed,checkbox
+181,SelfEmployed_2,secondary_employment_self,checkbox
+182,Retired_2,secondary_employment_retired,checkbox
+183,Homemaker_2,secondary_employment_homemaker,checkbox
+184,Student_2,secondary_employment_student,checkbox
+185,Not Employed_2,secondary_employment_unemployed,checkbox
+186,Business OwnerSelfEmployed_2,secondary_occupation_owner,checkbox
+187,ExecutiveSenior Management_2,secondary_occupation_executive,checkbox
+188,Medical Professional_2,secondary_occupation_medical,checkbox
+189,Legal Professional_2,secondary_occupation_legal,checkbox
+190,Accounting Professional_2,secondary_occupation_accounting,checkbox
+191,Financial ServicesBanking Professional_2,secondary_occupation_financial,checkbox
+192,Information Technology Professional_2,secondary_occupation_it,checkbox
+193,Other Professional_2,secondary_occupation_professional,checkbox
+194,ClericalAdministrative Services_2,secondary_occupation_clerical,checkbox
+195,Foreign Government Employee nonUS_2,secondary_occupation_foreign_govt,checkbox
+196,US Government Employee federalstatelocal_2,secondary_occupation_us_govt,text
+197,Military_2,secondary_occupation_military,checkbox
+198,Educator_2,secondary_occupation_educator,checkbox
+199,SalesMarketing_2,secondary_occupation_sales,checkbox
+200,undefined_6,secondary_occupation_other_text,checkbox
+201,TradeService labormanufacturingproduction_2,secondary_occupation_trade,checkbox
+202,Consultant_2,secondary_occupation_consultant,checkbox
+203,Other specify_2,secondary_occupation_other,checkbox
+204,Employer NameBusiness Name_2,secondary_employer_name,text
+205,Business Street Address no PO boxes_2,secondary_employer_address,text
+206,City_8,secondary_employer_city,text
+207,State or Province_8,secondary_employer_state,text
+208,Zip or Postal Code_8,secondary_employer_zip,text
+209,Country_8,secondary_employer_country,text
+210,No_5,secondary_finra_no,checkbox
+211,Yes If Yes you must attach a letter from your or your immediate family members employer or affiliated brokerdealer approving_2,secondary_finra_yes,checkbox
+212,undefined_7,secondary_finra_company,text
+213,No_6,secondary_director_no,checkbox
+214,Yes If Yes enter company name_2,secondary_director_yes,checkbox
+215,and trading symbol_2,secondary_director_company,text
+216,undefined_8,secondary_director_symbol,text
+217,Name First_5,sec_trust_contact1_first,text
+218,Middle_5,sec_trust_contact1_middle,text
+219,Last_5,sec_trust_contact1_last,text
+220,Suffix_5,sec_trust_contact1_suffix,text
+221,Spouse_3,sec_trust_contact1_rel_spouse,checkbox
+222,Partner_3,sec_trust_contact1_rel_partner,checkbox
+223,Child_3,sec_trust_contact1_rel_child,checkbox
+224,Parent_3,sec_trust_contact1_rel_parent,checkbox
+225,Sibling_3,sec_trust_contact1_rel_sibling,checkbox
+226,Friend_3,sec_trust_contact1_rel_friend,checkbox
+227,Other_7,sec_trust_contact1_rel_other,checkbox
+228,Mailing Address no PO boxes_3,sec_trust_contact1_address,text
+229,City_9,sec_trust_contact1_city,text
+230,State or Province_9,sec_trust_contact1_state,text
+231,Zip or Postal Code_9,sec_trust_contact1_zip,text
+232,Country_9,sec_trust_contact1_country,text
+233,Telephone Number_5,sec_trust_contact1_phone,text
+234,Mobile Number_5,sec_trust_contact1_mobile,text
+235,Email Address_4,sec_trust_contact1_email,text
+236,Name First_6,sec_trust_contact2_first,text
+237,Middle_6,sec_trust_contact2_middle,text
+238,Last_6,sec_trust_contact2_last,text
+239,Suffix_6,sec_trust_contact2_suffix,text
+240,Spouse_4,sec_trust_contact2_rel_spouse,checkbox
+241,Partner_4,sec_trust_contact2_rel_partner,checkbox
+242,Child_4,sec_trust_contact2_rel_child,checkbox
+243,Parent_4,sec_trust_contact2_rel_parent,checkbox
+244,Sibling_4,sec_trust_contact2_rel_sibling,checkbox
+245,Friend_4,sec_trust_contact2_rel_friend,checkbox
+246,Other_8,sec_trust_contact2_rel_other,checkbox
+247,Mailing Address no PO boxes_4,sec_trust_contact2_address,text
+248,City_10,sec_trust_contact2_city,text
+249,State or Province_10,sec_trust_contact2_state,text
+250,Zip or Postal Code_10,sec_trust_contact2_zip,text
+251,Country_10,sec_trust_contact2_country,text
+252,Telephone Number_6,sec_trust_contact2_phone,text
+253,Mobile Number_6,sec_trust_contact2_mobile,text
+254,Email Address_5,sec_trust_contact2_email,text
+255,No do not enroll my account in Paperless Documents Please send my regulatory documents via postal mail,paperless_opt_out,checkbox
+256,SalaryWagesSavings,source_salary,checkbox
+257,Social Security Benefits,source_social_security,checkbox
+258,Sale of Property or Business,source_property_sale,checkbox
+259,FamilyRelativesInheritance,source_inheritance,checkbox
+260,General Investing,purpose_general,checkbox
+261,Investing for Tax Planning eg municipal bonds etc,purpose_tax_planning,checkbox
+262,Investing for Retirement,purpose_retirement,checkbox
+263,Other please specify,purpose_other,checkbox
+264,Investment Capital Gains,source_capital_gains,checkbox
+265,Gifts,source_gifts,checkbox
+266,GamblingLottery,source_gambling,checkbox
+267,Other please specify_2,source_other,checkbox
+268,Investing for Estate Planning,purpose_estate,checkbox
+269,Investing for College,purpose_college,checkbox
+270,Investing of Pooled Assets eg funds from individual investors that,purpose_pooled_assets,checkbox
+271,undefined_9,purpose_other_text,text
+272,undefined_10,source_other_text,text
+273,Yes I would like to order checks,checks_only,checkbox
+274,Yes I would like to order checks and a Visa Platinum Debit Card,checks_one_card,checkbox
+275,Yes I would like to order checks and two Visa debit cards second debit card may be issued only in the name of the additional account holder on,checks_two_cards,checkbox
+276,Less than 5 times per month,activity_low,checkbox
+277,11 to 20 times per month,activity_high,checkbox
+278,5 to 10 times per month,activity_medium,checkbox
+279,More than 20 times per month,activity_very_high,checkbox
+280,Trading and Disbursement Authorization for Checks and Journals Selecting this option indicates that I have authorized my IA to take the,auth_trading_disbursement,checkbox
+281,Trading Authorization Selecting this option indicates that I have authorized my IA and I instruct Schwab to permit my IA to place trades in,auth_trading_only,checkbox
+282,Fee Payment Authorization Selecting this option indicates that I have authorized my IA and I instruct Schwab to permit my IA to pay,auth_fee_payment,checkbox
+283,Account Holder,proxy_vote_holder,checkbox
+284,IA,proxy_vote_ia,checkbox
+285,Account Holder_2,proxy_copy_holder,checkbox
+286,IA May choose only if Account Holder is voting,proxy_copy_ia,checkbox
+287,None,proxy_copy_none,checkbox
+288,Account Holder_3,reorg_vote_holder,checkbox
+289,IA_2,reorg_vote_ia,checkbox
+290,Account Holder_4,reorg_copy_holder,checkbox
+291,IA May choose only if Account Holder is voting_2,reorg_copy_ia,checkbox
+292,None_2,reorg_copy_none,checkbox
+293,Account Holder_5,interim_mail_holder,checkbox
+294,IA_3,interim_mail_ia,checkbox
+295,Both Account Holder and IA,interim_mail_both,checkbox
+296,Yes I object to Schwabs release of my name address and securities positions to issuers whose securities are held in my Account,info_release_object,checkbox
+297,No I do not object to Schwabs release of my name address and securities positions to issuers whose securities are held in my Account,info_release_allow,checkbox
+298,dividends on your tax return you must check the following box indicating that item 2 above does not apply,backup_withholding,checkbox
+299,Signature Primary Account HolderCustodianExecutor,primary_signature,signature
+300,Todays Date mmddyyyy,primary_sign_date,text
+301,Print Name,primary_print_name,text
+302,Signature Additional Account HolderCustodianExecutor,secondary_signature,signature
+303,Todays Date mmddyyyy_2,secondary_sign_date,text
+304,Print Name_2,secondary_print_name,text
+305,Ask your Advisor about digital onboarding for opening new accounts in the future_2,digital_note_bottom,text
+306,Name of Successor Custodian,successor_custodian_name,text
+307,Signature Current Custodian,custodian_signature,signature
+308,Todays Date mmddyyyy_3,custodian_sign_date,text
+309,Print Name_3,custodian_print_name,text
+310,Title,custodian_title,text
+311,Signature Witness,witness_signature,signature
+312,Todays Date mmddyyyy_4,witness_sign_date,text
+313,Print Name_4,witness_print_name,text
+314,Title_2,witness_title,text
+315,Available Cash Features,cash_features_info,text
+316,Eligibility,eligibility_info,text
+317,Interest Rates and Yields,interest_rates_info,text
+318,Interest Rates and Yields Continued,interest_rates_continued,text
+319,Benefits to Schwab,benefits_info,text
+320,Differing Risks and Account Protection,risks_info,text
+321,Investment and Insurance Products  Not a Deposit  Not FDIC Insured  Not Insured by any Federal Government Agency  No Bank Guarantee  May Lose Value,disclaimer_text,text

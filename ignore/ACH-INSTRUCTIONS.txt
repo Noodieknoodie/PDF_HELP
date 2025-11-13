@@ -1,0 +1,407 @@
+SCHWAB ACH (MoneyLink) FORM - FIELD GUIDE
+For Non-Retirement Accounts
+====
+
+PURPOSE:
+Use this form to:
+- Establish new connection with another financial institution for On-Request transfers
+- Establish/modify recurring income payment plan
+- Establish recurring transfer instructions
+- Request one-time transfer
+- Modify existing recurring instruction
+
+INELIGIBLE ACCOUNT TYPES:
+- Pledged Asset Accounts for Schwab Bank (PAASB)
+- Individual 401(k), QRP, 403(b)(7)
+- Estate, Guardianship, Conservatorship
+- SEP-IRA (inbound)
+- Custodial accounts (outbound to account without minor's name)
+
+IMPORTANT NOTES:
+- Multiple Schwab accounts allowed only if identical Tax ID and named holders
+- Multiple external accounts require separate forms
+- ACH not available to pull funds if you're not authorized on external account
+
+RULES:
+- LEAVE ALL FIELDS BLANK THAT ARE NOT NEEDED FOR THE TASK AT HAND
+- Don't do extra
+- Don't make up any details
+- if uncertain then ASK user before attempting 
+- generate multiple docs if required (such as individual ones per account if thats a requirement)
+- follow any examples provided for how these forms are typically filled out, use best judgement
+
+====
+INVESTMENT ADVISOR (IA) INFORMATION
+====
+
+ia_firm_name [text]
+  Label: IA Firm Name (Please print.)
+
+ia_master_account [text]
+  Label: IA Master Account Number
+
+ia_service_team [text]
+  Label: Service Team
+
+ia_contact_name [text]
+  Label: IA Contact Name (if follow-up is required)
+
+ia_phone [text]
+  Label: IA Telephone Number
+
+ia_email [text]
+  Label: IA Email Address
+
+====
+SECTION 1: SCHWAB ACCOUNT INFORMATION (REQUIRED)
+====
+
+Note: Multiple accounts may be listed only if identical tax ID# and named holders
+
+schwab_holder_1 [text]
+  Label: Schwab Account Holder Name(s) (List all names.)
+
+schwab_holder_2 [text]
+  Label: Schwab Account Holder Name(s) (Continued.)
+
+schwab_holder_ssn [text]
+  Label: Social Security/Tax ID Number
+
+schwab_account_numbers [text]
+  Label: Schwab Account Number(s)
+
+====
+SECTION 2: TRANSFER INSTRUCTIONS
+====
+
+A. SET UP OR TERMINATE INSTRUCTIONS (Select one):
+
+tx_new_request [checkbox]
+  Label: Set up new on-request instructions, and, if applicable, request a one-time transfer.
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Sections 3, 4, and 7. Also complete Section 6 if adding IA authorization.
+
+tx_add_account_keep_existing [checkbox]
+  Label: Set up an additional other financial institution account without removing existing instructions.
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Sections 3, 4, and 7. Also complete Section 6 if adding IA authorization.
+
+tx_onetime_from_existing [checkbox]
+  Label: Initiate a one-time transfer from an existing on-request instruction.
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Section 3, 4 and 7.
+
+tx_add_account_terminate_existing [checkbox]
+  Label: Set up an additional other financial institution account and terminate existing instructions for other financial institution account number.
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Sections 3, 4, and 7. Also complete Section 6 if adding IA authorization.
+
+tx_terminate [checkbox]
+  Label: Terminate existing instructions.
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Sections 3 and 7.
+
+B. CHANGE EXISTING INSTRUCTIONS:
+
+Note: If account has existing ACH for multiple institutions, provide specific account info in Section 3.
+
+tx_change_recurring_details [checkbox]
+  Label: Change amount for recurring transfer and/or frequency and start date instructions.
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Sections 4 and 7.
+
+tx_change_direction [checkbox]
+  Label: Change direction for on-request transfer instructions.
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Sections 4 and 7.
+
+tx_add_ia [checkbox]
+  Label: Add IA authorization only.
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Sections 3, 6, and 7.
+
+tx_remove_ia [checkbox]
+  Label: Remove IA authorization only.
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Sections 3 and 7.
+
+tx_update_bank_link [checkbox]
+  Label: Update my existing bank link information
+  Values: /On (checked), /Off (unchecked)
+  Note: Complete Sections 3 and 7.
+
+====
+SECTION 3: OTHER FINANCIAL INSTITUTION ACCOUNT INFORMATION
+====
+
+Note: All information fields in this section are required.
+Note: ACH not available to pull funds if you're not authorized on the external account.
+
+aba_routing [text]
+  Label: ABA Transit Routing Number
+
+external_account_number [text]
+  Label: Account Number
+
+external_account_name [text]
+  Label: Name(s) on Other Financial Institution Account (registration)
+
+external_bank_name [text]
+  Label: Bank Name (i.e National Bank Delaware)
+
+TYPE OF ACCOUNT (Select one):
+
+acct_type_personal_checking [checkbox]
+  Label: Personal Checking Account
+  Values: /On (checked), /Off (unchecked)
+
+acct_type_personal_savings [checkbox]
+  Label: Personal Savings Account
+  Values: /On (checked), /Off (unchecked)
+
+acct_type_corp_checking [checkbox]
+  Label: Corporate/Organization Checking Account
+  Values: /On (checked), /Off (unchecked)
+
+acct_type_corp_savings [checkbox]
+  Label: Corporate/Organization Savings Account
+  Values: /On (checked), /Off (unchecked)
+
+ACCOUNT OWNERSHIP:
+
+is_owner_external [radio_group]
+  Label: Are you an owner on the Other Financial Institution Account?
+  Options: /Yes, /No
+  Note: If no, external account holder must sign to establish ACH instruction.
+
+is_identity_match [radio_group]
+  Label: Are the named account holder(s) and Tax ID#s on the Other Financial Institution Account identical to your Schwab account?
+  Options: /Yes_2, /No_2
+  Note: If yes, instruction categorized as 1st party. If blank, categorized as 3rd party.
+
+====
+SECTION 4: TYPE OF TRANSFER
+====
+
+ON-REQUEST TRANSFERS:
+Note: Select one below. If no selection, account set up for transfers into and out.
+Note: For SIMPLE IRA Master Accounts, select "Into my Schwab account."
+
+tx_into_schwab [checkbox]
+  Label: Into my Schwab account
+  Values: /On (checked), /Off (unchecked)
+
+tx_out_schwab [checkbox]
+  Label: Out of my Schwab account
+  Values: /On (checked), /Off (unchecked)
+
+tx_into_out_schwab [checkbox]
+  Label: Into and out of my Schwab account
+  Values: /On (checked), /Off (unchecked)
+
+RECURRING TRANSFERS:
+Note: Not available for SIMPLE IRA Master Accounts.
+
+RECURRING INTO SCHWAB:
+
+recurring_into_amount [checkbox]
+  Label: Into my Schwab account checkbox
+  Values: /On (checked), /Off (unchecked)
+
+recurring_amount_1 [text]
+  Label: Into my Schwab account in the amount of $
+
+recurring_start_1 [text]
+  Label: beginning (mm/dd/yyyy)
+
+recurring_end_1 [text]
+  Label: and continuing until (mm/dd/yyyy)
+  Note: If no end date provided, instruction remains until revoked.
+
+RECURRING OUT OF SCHWAB:
+
+recurring_out_amount [checkbox]
+  Label: Out of my Schwab account checkbox
+  Values: /On (checked), /Off (unchecked)
+
+recurring_amount_2 [text]
+  Label: Out of my Schwab account in the amount of $
+
+recurring_start_2 [text]
+  Label: beginning (mm/dd/yyyy)
+
+recurring_end_2 [text]
+  Label: and continuing until (mm/dd/yyyy)
+  Note: If no end date provided, instruction remains until revoked.
+
+RECURRING INTO IRA:
+
+ira_recurring [checkbox]
+  Label: Into my Schwab IRA account checkbox
+  Values: /On (checked), /Off (unchecked)
+
+ira_tax_year [text]
+  Label: Into my Schwab IRA account, beginning for tax year (yyyy)
+
+ira_contribution_amount [text]
+  Label: in the amount of (up to the annual contribution limit) $
+
+recurring_start_3 [text]
+  Label: beginning (mm/dd/yyyy)
+
+recurring_end_3 [text]
+  Label: and continuing until (mm/dd/yyyy)
+  Note: If no end date provided, instruction remains until revoked.
+
+FREQUENCY (Select one if recurring transfer selected):
+Note: If not received in time for first transfer, will start on next in sequence.
+
+freq_weekly [checkbox]
+  Label: Weekly
+  Values: /On (checked), /Off (unchecked)
+
+freq_semimonthly [checkbox]
+  Label: Semimonthly
+  Values: /On (checked), /Off (unchecked)
+
+freq_date_1 [text]
+  Label: 1st date (for semimonthly)
+
+freq_date_2 [text]
+  Label: 2nd date (for semimonthly)
+
+freq_monthly [checkbox]
+  Label: Monthly
+  Values: /On (checked), /Off (unchecked)
+
+freq_last_business_day [checkbox]
+  Label: Last business day of each month
+  Values: /On (checked), /Off (unchecked)
+
+freq_bimonthly [checkbox]
+  Label: Every Two Months
+  Values: /On (checked), /Off (unchecked)
+
+freq_quarterly [checkbox]
+  Label: Quarterly
+  Values: /On (checked), /Off (unchecked)
+
+freq_semiannual [checkbox]
+  Label: Semiannually
+  Values: /On (checked), /Off (unchecked)
+
+freq_date_1_alt [text]
+  Label: 1st date (for semiannually)
+
+freq_annual [checkbox]
+  Label: Annually
+  Values: /On (checked), /Off (unchecked)
+
+INITIATE ONE-TIME TRANSFER FROM ON-REQUEST INSTRUCTION:
+Note: Select all that are applicable.
+
+onetime_trigger [checkbox]
+  Label: Initiate One-Time Transfer from an On-Request Instruction
+  Values: /On (checked), /Off (unchecked)
+
+onetime_into_amount [text]
+  Label: Into my Schwab account in the amount of $
+
+onetime_amount [checkbox]
+  Label: Out my Schwab account checkbox
+  Values: /On (checked), /Off (unchecked)
+
+onetime_out_amount [text]
+  Label: Out my Schwab account in the amount of $
+
+====
+SECTION 5: DIVIDEND AND INTEREST PAYMENT INSTRUCTIONS
+====
+
+SET UP/CHANGE INSTRUCTIONS:
+
+income_plan_new [checkbox]
+  Label: Set up a new income payment plan.
+  Values: /On (checked), /Off (unchecked)
+
+income_plan_change [checkbox]
+  Label: Change my existing income payment plan.
+  Values: /On (checked), /Off (unchecked)
+
+income_plan_terminate [checkbox]
+  Label: Terminate my existing income payment plan.
+  Values: /On (checked), /Off (unchecked)
+
+INCOME OPTIONS:
+Note: Choose "All Income Plan" OR up to three from below.
+Note: Maximum $500,000 per transaction.
+
+income_option_all [checkbox]
+  Label: All Income Plan (All dividend, interest, and money market account income consolidated into single payment.)
+  Values: /On (checked), /Off (unchecked)
+
+FLEXIBLE INCOME PLAN (Choose up to three):
+
+income_option_dividends [checkbox]
+  Label: Dividends (Includes capital gains distributions; consolidated into single payment.)
+  Values: /On (checked), /Off (unchecked)
+
+income_option_interest [checkbox]
+  Label: Interest (Includes fixed income and CDs; consolidated into single payment.)
+  Values: /On (checked), /Off (unchecked)
+
+income_option_money_market [checkbox]
+  Label: Money Market (Includes Schwab One® interest and Charles Schwab Bank, SSB interest; consolidated into single payment.)
+  Values: /On (checked), /Off (unchecked)
+
+FREQUENCY (Check one):
+Note: If not provided, account set up for earliest available last business day of month.
+
+income_freq_as_accrued [checkbox]
+  Label: As Accrued (Account debited on first business day after income credited.)
+  Values: /On (checked), /Off (unchecked)
+
+income_freq_last_business_day [checkbox]
+  Label: Last Business Day of the Month (Income aggregated on last business day, account debited first business day of next month [excluding December].)
+  Values: /On (checked), /Off (unchecked)
+
+====
+SECTION 6: SKIP (IA AUTHORIZATION FIELDS)
+====
+Note: These fields are handled via initials in the PDF viewer, not fillable fields
+
+====
+SECTION 7A: SCHWAB ACCOUNT HOLDER INFORMATION
+====
+
+Note: At least one Schwab account holder must sign (see signature section).
+Note: For Trust/Corporate/Partnership/Organization accounts, at least one Trustee/Authorized Agent must sign.
+
+schwab_sig_1_print [text]
+  Label: Print Name (First Schwab Account Holder)
+
+schwab_sig_2_print [text]
+  Label: Print Name (Second Schwab Account Holder)
+
+schwab_sig_3_print [text]
+  Label: Print Name (Third Schwab Account Holder)
+
+====
+SECTION 7B: OTHER FINANCIAL INSTITUTION ACCOUNT HOLDER
+====
+
+Note: Required if Schwab Account Holder is not owner on Other Financial Institution Account.
+
+other_fi_first [text]
+  Label: Print First Name
+
+other_fi_last [text]
+  Label: Print Last Name
+
+other_fi_email [text]
+  Label: Email Address of Other Financial Institution Account Holder
+  Note: Email or phone required for processing.
+
+other_fi_phone [text]
+  Label: Phone Number
+  Note: Email or phone required for processing.

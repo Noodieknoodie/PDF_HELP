@@ -1,0 +1,174 @@
+SCHWAB ACH (MoneyLink) FORM - ADVISOR FIELD GUIDE
+=====================================================
+
+STANDARD VALUES
+---------------
+All checkboxes: /On (checked), /Off (unchecked)
+Radio buttons: See specific field for values
+All dates: mm/dd/yyyy format
+Print in CAPITAL LETTERS
+
+PURPOSE
+---------------
+- Establish new connection with another financial institution for On-Request transfers
+- Establish/modify recurring income payment plan
+- Establish recurring transfer instructions
+- Request one-time transfer
+- Modify existing recurring instruction
+
+INELIGIBLE ACCOUNTS
+---------------
+- Pledged Asset Accounts for Schwab Bank (PAASB)
+- Individual 401(k), QRP, 403(b)(7)
+- Estate, Guardianship, Conservatorship
+- SEP-IRA (inbound)
+- Custodial accounts (outbound to account without minor's name)
+
+IMPORTANT RULES
+---------------
+- Multiple Schwab accounts allowed only if identical Tax ID and named holders
+- Multiple external accounts require separate forms
+- ACH not available to pull funds if you're not authorized on external account
+- LEAVE ALL FIELDS BLANK THAT ARE NOT NEEDED
+- Don't make up any details
+- If uncertain, ASK user before attempting
+- Generate multiple docs if required for multiple external accounts
+
+=====================================================
+INVESTMENT ADVISOR INFORMATION
+=====================================================
+ia_firm_name [text] - IA Firm Name
+ia_master_account [text] - IA Master Account Number
+ia_service_team [text] - Service Team
+ia_contact_name [text] - IA Contact Name (if follow-up required)
+ia_phone [text] - IA Telephone Number
+ia_email [text] - IA Email Address
+
+=====================================================
+SECTION 1: SCHWAB ACCOUNT INFORMATION (Required)
+=====================================================
+schwab_holder_1 [text] - Schwab Account Holder Name(s)
+schwab_holder_2 [text] - Schwab Account Holder Name(s) Continued
+schwab_holder_ssn [text] - Social Security/Tax ID Number
+schwab_account_numbers [text] - Schwab Account Number(s)
+Note: Multiple accounts only if identical tax ID and named holders
+
+=====================================================
+SECTION 2: TRANSFER INSTRUCTIONS
+=====================================================
+A. SET UP OR TERMINATE (select one):
+tx_new_request - Set up new on-request instructions (complete 3,4,7 and 6 if adding IA auth)
+tx_add_account_keep_existing - Add institution without removing existing (complete 3,4,7 and 6 if adding IA auth)
+tx_onetime_from_existing - One-time transfer from existing instruction (complete 3,4,7)
+tx_add_account_terminate_existing - Add new and terminate existing (complete 3,4,7 and 6 if adding IA auth)
+tx_terminate - Terminate existing instructions (complete 3,7)
+
+B. CHANGE EXISTING:
+tx_change_recurring_details - Change amount/frequency/start date (complete 4,7)
+tx_change_direction - Change direction for on-request (complete 4,7)
+tx_add_ia - Add IA authorization only (complete 3,6,7)
+tx_remove_ia - Remove IA authorization only (complete 3,7)
+tx_update_bank_link - Update existing bank link info (complete 3,7)
+
+=====================================================
+SECTION 3: OTHER FINANCIAL INSTITUTION ACCOUNT
+=====================================================
+REQUIRED FIELDS:
+aba_routing [text] - ABA Transit Routing Number
+external_account_number [text] - Account Number
+external_account_name [text] - Name(s) on Other Financial Institution Account
+external_bank_name [text] - Bank Name (e.g. National Bank Delaware)
+
+ACCOUNT TYPE (select one):
+acct_type_personal_checking - Personal Checking Account
+acct_type_personal_savings - Personal Savings Account
+acct_type_corp_checking - Corporate/Organization Checking Account
+acct_type_corp_savings - Corporate/Organization Savings Account
+
+OWNERSHIP:
+is_owner_external [radio] - Are you an owner on external account? Values: /Yes, /No
+is_identity_match [radio] - Are names/Tax IDs identical to Schwab account? Values: /Yes_2, /No_2
+Note: If not owner, external account holder must sign to establish ACH
+
+=====================================================
+SECTION 4: TYPE OF TRANSFER
+=====================================================
+ON-REQUEST TRANSFERS (select one or none for both directions):
+tx_into_schwab - Into my Schwab account
+tx_out_schwab - Out of my Schwab account
+tx_into_out_schwab - Into and out of my Schwab account
+Note: For SIMPLE IRA Master Accounts, select "Into my Schwab account"
+
+RECURRING TRANSFERS:
+Into Schwab:
+recurring_into_amount [checkbox] + recurring_amount_1 [text] - Amount $
+recurring_start_1 [text] - Beginning date
+recurring_end_1 [text] - End date (blank = until revoked)
+
+Out of Schwab:
+recurring_out_amount [checkbox] + recurring_amount_2 [text] - Amount $
+recurring_start_2 [text] - Beginning date
+recurring_end_2 [text] - End date (blank = until revoked)
+
+Into IRA:
+ira_recurring [checkbox] + ira_tax_year [text] - Tax year (yyyy)
+ira_contribution_amount [text] - Amount (up to annual limit) $
+recurring_start_3 [text] - Beginning date
+recurring_end_3 [text] - End date (blank = until revoked)
+
+FREQUENCY (select one if recurring):
+freq_weekly - Weekly
+freq_semimonthly - Semimonthly + freq_date_1 [text] + freq_date_2 [text]
+freq_monthly - Monthly
+freq_last_business_day - Last business day of each month
+freq_bimonthly - Every Two Months
+freq_quarterly - Quarterly
+freq_semiannual - Semiannually + freq_date_1_alt [text]
+freq_annual - Annually
+
+ONE-TIME TRANSFER:
+onetime_trigger [checkbox] - Initiate One-Time Transfer
+onetime_into_amount [text] - Into Schwab amount $
+onetime_amount [checkbox] + onetime_out_amount [text] - Out of Schwab amount $
+
+=====================================================
+SECTION 5: DIVIDEND AND INTEREST PAYMENT
+=====================================================
+SETUP/CHANGE:
+income_plan_new - Set up new income payment plan
+income_plan_change - Change existing income payment plan
+income_plan_terminate - Terminate existing income payment plan
+
+INCOME OPTIONS (choose All OR up to 3 Flexible):
+income_option_all - All Income Plan (all dividends, interest, money market)
+
+FLEXIBLE INCOME PLAN (up to 3):
+income_option_dividends - Dividends (includes capital gains)
+income_option_interest - Interest (fixed income and CDs)
+income_option_money_market - Money Market (Schwab One and Bank interest)
+Note: Maximum $500,000 per transaction
+
+FREQUENCY:
+income_freq_as_accrued - As Accrued (debited first business day after credited)
+income_freq_last_business_day - Last Business Day of Month (debited first of next month)
+
+=====================================================
+SECTION 6: IA AUTHORIZATION
+=====================================================
+Note: Handled via initials in PDF viewer, not fillable fields
+
+=====================================================
+SECTION 7: SIGNATURES
+=====================================================
+SCHWAB ACCOUNT HOLDERS:
+schwab_sig_1_print [text] - Print Name (First Account Holder)
+schwab_sig_2_print [text] - Print Name (Second Account Holder)
+schwab_sig_3_print [text] - Print Name (Third Account Holder)
+Note: At least one Schwab account holder must sign
+
+OTHER FINANCIAL INSTITUTION HOLDER (if not owner):
+other_fi_first [text] - Print First Name
+other_fi_last [text] - Print Last Name
+other_fi_email [text] - Email Address (required for processing)
+other_fi_phone [text] - Phone Number (email or phone required)
+[Signatures handled separately]
