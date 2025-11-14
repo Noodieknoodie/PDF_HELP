@@ -10,36 +10,42 @@ def extract_pdf_fields(pdf_path, output_path):
         if not all_fields:
             return 0
 
-        field_list = []
-        for field_name, field_object in all_fields.items():
-            if '/FT' in field_object:
-                field_type_code = field_object['/FT']
-                type_mapping = {
-                    '/Tx': 'Text',
-                    '/Btn': 'Button',
-                    '/Ch': 'Choice',
-                    '/Sig': 'Signature'
-                }
-                field_type = type_mapping.get(field_type_code, str(field_type_code))
-                if field_type_code == '/Btn':
-                    flags = field_object.get('/Ff', 0)
-                    if flags & 65536:
-                        field_type = 'Radio'
-                    elif flags & 131072:
-                        field_type = 'Push'
+        items = []
+        for name, obj in all_fields.items():
+            ftype = "Unknown"
+            if "/FT" in obj:
+                t = obj["/FT"]
+                if t == "/Tx": ftype = "Text"
+                elif t == "/Ch": ftype = "Choice"
+                elif t == "/Sig": ftype = "Signature"
+                elif t == "/Btn":
+                    flags = obj.get("/Ff", 0)
+                    if flags & 65536: ftype = "Radio"
+                    elif flags & 131072: ftype = "Push"
+                    else: ftype = "Checkbox"
+
+            opts = obj.get("/Opt", None)
+            drop = []
+            if opts:
+                for o in opts:
+                    if isinstance(o, list) and len(o) >= 2:
+                        drop.append(str(o[1]))
                     else:
-                        field_type = 'Checkbox'
-                field_list.append((field_name, field_type))
+                        drop.append(str(o))
 
-        with open(output_path, 'w', encoding='utf-8') as f:
+            items.append((name, ftype, drop))
+
+        with open(output_path, "w", encoding="utf-8") as f:
             f.write(f"Source: {os.path.basename(pdf_path)}\n")
-            f.write(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
-            f.write(f"Total fields: {len(field_list)}\n\n")
-            f.write("ID, Field Name, Type\n")
-            for i, (field_name, field_type) in enumerate(field_list, start=1):
-                f.write(f"{i}, {field_name}, {field_type}\n")
+            f.write(f"Date: {datetime.now():%Y-%m-%d %H:%M}\n")
+            f.write(f"Total fields: {len(items)}\n\n")
+            f.write("ID, Field Name, Type, Options\n")
 
-        return len(field_list)
+            for i, (name, ftype, drop) in enumerate(items, 1):
+                opts = "; ".join(drop) if drop else ""
+                f.write(f"{i}, {name}, {ftype}, {opts}\n")
+
+        return len(items)
 
     except Exception:
         return 0
@@ -49,17 +55,14 @@ def main():
     output_dir = r"C:\Users\ErikKnudsen\OneDrive - Hohimer Wealth Management\Documents\Prefilled-Forms\output"
     os.makedirs(output_dir, exist_ok=True)
 
-    pdf_files = glob.glob(os.path.join(input_dir, "*.pdf"))
-    if not pdf_files:
+    pdfs = glob.glob(os.path.join(input_dir, "*.pdf"))
+    if not pdfs:
         return
 
-    total_fields = 0
-    for pdf_path in pdf_files:
-        pdf_name = os.path.basename(pdf_path)
-        output_filename = pdf_name.replace('.pdf', '_fields.txt')
-        output_path = os.path.join(output_dir, output_filename)
-        fields_count = extract_pdf_fields(pdf_path, output_path)
-        total_fields += fields_count
+    total = 0
+    for p in pdfs:
+        out = os.path.join(output_dir, os.path.basename(p).replace(".pdf", "_fields.txt"))
+        total += extract_pdf_fields(p, out)
 
 if __name__ == "__main__":
     main()
