@@ -1,0 +1,307 @@
+# Schwab Account Application Form Automation - Training Document
+
+## Overview
+This document provides instructions for AI agents to generate JSON data that populates Schwab One Account Application forms. The system processes a single JSON file containing multiple account applications and generates individual PDFs for each.
+
+## JSON Structure Requirements
+
+### Root Structure
+The JSON must be an array of account objects. Each object represents one PDF to be generated:
+
+```json
+[
+  {
+    "output_filename": "smith_john_individual_2024.pdf",
+    ...field_data...
+  },
+  {
+    "output_filename": "smith_jane_individual_2024.pdf", 
+    ...field_data...
+  }
+]
+```
+
+### Critical Rules
+1. **Only include fields with values** - Never include empty strings, null, or false values
+2. **Text fields**: Use UPPERCASE for names and addresses
+3. **Date format**: mm/dd/yyyy
+4. **Phone format**: (xxx) xxx-xxxx with no escape characters
+5. **SSN format**: xxx-xx-xxxx
+6. **Boolean fields**: Use `true` for checked boxes, omit field entirely if unchecked
+7. **Required field**: Every form MUST have `"output_filename"` field
+
+## Field Reference Guide
+
+### METADATA (Required)
+- `output_filename` [string] - Name for the generated PDF file
+
+### ACCOUNT TYPE (Select one)
+- `account_type_schwab_one` [boolean] - Standard Schwab One account
+- `account_type_margin` [boolean] - Schwab One with Margin (NOT available for Custodial/Conservatorship/Guardianship/Estate)
+
+### REGISTRATION TYPE (Select exactly one)
+- `reg_individual` [boolean] - Single owner
+- `reg_joint_rights` [boolean] - Joint Tenants with Rights of Survivorship
+- `reg_tenants_common` [boolean] - Tenants in Common
+- `reg_tenants_entirety` [boolean] - Tenants by the Entirety (limited states)
+- `reg_community_property` [boolean] - Community Property (limited states)
+- `reg_community_rights` [boolean] - Community Property with Rights of Survivorship
+- `reg_conservatorship` [boolean] - Requires court order
+- `reg_guardianship` [boolean] - Requires court order
+- `reg_custodial` [boolean] - For minors
+  - `custodial_state` [text] - Two-letter state code (required if custodial)
+  - `custodial_age_termination` [text] - Age of termination
+- `reg_estate` [boolean] - Requires court order
+  - `decedent_first_name` [text] - Required if estate
+  - `decedent_middle_name` [text]
+  - `decedent_last_name` [text] - Required if estate
+  - `decedent_ssn` [text] - Required if estate
+  - `estate_tax_id` [text] - Required if estate
+
+### PRIMARY ACCOUNT HOLDER (Required for all accounts)
+#### Personal Information
+- `primary_first_name` [text] - Required
+- `primary_middle_name` [text]
+- `primary_last_name` [text] - Required  
+- `primary_suffix` [text] - (JR, SR, III, etc.)
+- `primary_ssn` [text] - Format: xxx-xx-xxxx - Required
+- `primary_dob` [text] - Format: mm/dd/yyyy - Required
+- `primary_preferred_name` [text] - Nickname/preferred name
+- `primary_mothers_maiden` [text] - Security question
+
+#### Home Address (Required)
+- `primary_street_address` [text] - No P.O. boxes - Required
+- `primary_city` [text] - Required
+- `primary_state` [text] - Two-letter code - Required
+- `primary_zip` [text] - Required
+- `primary_country` [text] - Required
+
+#### Mailing Address (Only if different from home)
+- `primary_mailing_address` [text] - P.O. boxes OK
+- `primary_mailing_city` [text]
+- `primary_mailing_state` [text]
+- `primary_mailing_zip` [text]
+- `primary_mailing_country` [text]
+
+#### Contact Information
+- `primary_phone` [text] - Format: (xxx) xxx-xxxx
+- `primary_mobile` [text]
+- `primary_work_phone` [text]
+- `primary_work_ext` [text]
+- `primary_email` [text] - Leave blank for minors
+
+#### Citizenship (Select one)
+- `primary_citizen_usa` [boolean]
+- `primary_citizen_other` [boolean]
+  - `primary_citizen_other_country` [text] - Required if other
+
+#### Legal Residence (Select one)
+- `primary_residence_usa` [boolean]
+- `primary_residence_other` [boolean]
+  - `primary_residence_country` [text] - Required if other
+
+#### Identification (Select one type)
+- `primary_id_passport` [boolean]
+- `primary_id_license` [boolean]
+- `primary_id_govt` [boolean]
+
+Supporting fields:
+- `primary_id_number` [text] - Required
+- `primary_id_country` [text] - Required
+- `primary_id_state` [text] - If applicable
+- `primary_id_issue_date` [text] - Format: mm/dd/yyyy
+- `primary_id_exp_date` [text] - Format: mm/dd/yyyy
+
+#### Employment Status (Select one)
+- `primary_employment_employed` [boolean]
+- `primary_employment_self` [boolean]
+- `primary_employment_retired` [boolean]
+- `primary_employment_homemaker` [boolean]
+- `primary_employment_student` [boolean]
+- `primary_employment_unemployed` [boolean]
+
+#### Occupation (Select one if employed/self-employed)
+- `primary_occupation_owner` [boolean] - Business Owner/Self-Employed
+- `primary_occupation_executive` [boolean] - Executive/Senior Management
+- `primary_occupation_medical` [boolean] - Medical Professional
+- `primary_occupation_legal` [boolean] - Legal Professional
+- `primary_occupation_accounting` [boolean] - Accounting Professional
+- `primary_occupation_financial` [boolean] - Financial Services/Banking
+- `primary_occupation_it` [boolean] - Information Technology
+- `primary_occupation_professional` [boolean] - Other Professional
+- `primary_occupation_clerical` [boolean] - Clerical/Administrative
+- `primary_occupation_foreign_govt` [boolean] - Foreign Government Employee
+- `primary_occupation_military` [boolean] - Military
+- `primary_occupation_educator` [boolean] - Educator
+- `primary_occupation_sales` [boolean] - Sales/Marketing
+- `primary_occupation_us_govt` [boolean] - U.S. Government Employee
+- `primary_occupation_trade` [boolean] - Trade/Service
+- `primary_occupation_consultant` [boolean] - Consultant
+- `primary_occupation_other` [boolean]
+  - `primary_occupation_other_text` [text] - Required if other
+
+#### Employer Information (If employed)
+- `primary_employer_name` [text]
+- `primary_employer_address` [text]
+- `primary_employer_city` [text]
+- `primary_employer_state` [text]
+- `primary_employer_zip` [text]
+- `primary_employer_country` [text]
+
+#### Regulatory Questions
+- `primary_finra_no` [boolean] OR `primary_finra_yes` [boolean]
+  - `primary_finra_company` [text] - Required if yes
+- `primary_director_no` [boolean] OR `primary_director_yes` [boolean]
+  - `primary_director_company` [text] - Required if yes
+  - `primary_director_symbol` [text] - Stock symbol if yes
+
+### SECONDARY ACCOUNT HOLDER (For joint/custodial accounts only)
+All fields mirror primary account holder structure, but prefixed with `secondary_` instead of `primary_`:
+- `secondary_first_name`, `secondary_last_name`, `secondary_ssn`, `secondary_dob`, etc.
+
+### TRUSTED CONTACT PERSONS (Optional but recommended)
+#### Contact 1
+- `trust_contact1_first`, `trust_contact1_middle`, `trust_contact1_last`, `trust_contact1_suffix` [text]
+- Relationship (select one):
+  - `trust_contact1_rel_spouse`, `trust_contact1_rel_partner`, `trust_contact1_rel_child`
+  - `trust_contact1_rel_parent`, `trust_contact1_rel_sibling`, `trust_contact1_rel_friend`
+  - `trust_contact1_rel_other` [boolean]
+- `trust_contact1_address`, `trust_contact1_city`, `trust_contact1_state`, `trust_contact1_zip`, `trust_contact1_country` [text]
+- `trust_contact1_phone`, `trust_contact1_mobile`, `trust_contact1_email` [text] - Provide at least one
+
+#### Contact 2
+Same structure with `trust_contact2_` prefix
+
+#### Secondary Account Holder's Trusted Contacts
+- `sec_trust_contact1_*` and `sec_trust_contact2_*` with same structure
+
+### ACCOUNT SETTINGS
+
+#### Paperless Documents
+- `paperless_opt_out` [boolean] - Check only to receive postal mail instead of electronic
+
+#### Source of Funds (Select at least one)
+- `source_salary` [boolean] - Salary/Wages/Savings
+- `source_capital_gains` [boolean] - Investment Capital Gains
+- `source_social_security` [boolean] - Social Security Benefits
+- `source_gifts` [boolean] - Gifts
+- `source_property_sale` [boolean] - Sale of Property or Business
+- `source_gambling` [boolean] - Gambling/Lottery
+- `source_inheritance` [boolean] - Family/Relatives/Inheritance
+- `source_other` [boolean]
+  - `source_other_text` [text] - Required if other selected
+
+#### Purpose of Account (Select at least one)
+- `purpose_general` [boolean] - General Investing
+- `purpose_estate` [boolean] - Estate Planning
+- `purpose_tax_planning` [boolean] - Tax Planning
+- `purpose_college` [boolean] - College Investing
+- `purpose_retirement` [boolean] - Retirement Investing
+- `purpose_pooled_assets` [boolean] - Pooled Assets Investing
+- `purpose_other` [boolean]
+  - `purpose_other_text` [text] - Required if other selected
+
+#### Checking/Debit Card Preferences
+Select one option:
+- `checks_only` [boolean] - Checks only
+- `checks_one_card` [boolean] - Checks + 1 Visa Debit Card
+- `checks_two_cards` [boolean] - Checks + 2 Visa Cards (joint accounts only)
+
+Select anticipated activity:
+- `activity_low` [boolean] - Less than 5 times/month
+- `activity_medium` [boolean] - 5-10 times/month
+- `activity_high` [boolean] - 11-20 times/month
+- `activity_very_high` [boolean] - More than 20 times/month
+
+#### Investment Advisor Authorizations
+- `auth_trading_disbursement` [boolean] - Trading & Disbursement (not for Estates)
+- `auth_trading_only` [boolean] - Trading Only
+- `auth_fee_payment` [boolean] - Fee Payment Authorization
+
+#### Signature Fields
+- `primary_print_name` [text] - Printed name of primary account holder
+- `secondary_print_name` [text] - Printed name of secondary holder (if applicable)
+
+## Business Rules & Validation
+
+### Registration-Specific Requirements
+1. **Individual Account**: Only primary account holder fields
+2. **Joint Accounts**: Both primary and secondary account holder required
+3. **Custodial**: Primary is minor, secondary is custodian; `custodial_state` required
+4. **Estate**: All decedent fields and `estate_tax_id` required
+5. **Conservatorship/Guardianship**: Court order reference required (add in notes)
+
+### Conditional Logic
+- If `firm_is_custodian` = true, then `firm_holds_other_assets` becomes relevant
+- If `account_type_margin` = true, cannot be Custodial/Conservatorship/Guardianship/Estate
+- If `reg_custodial` = true, `custodial_state` is required
+- If any `*_other` checkbox = true, corresponding `*_other_text` field required
+- For joint accounts, `checks_two_cards` becomes available option
+
+### Common Scenarios Examples
+
+#### Individual Account
+```json
+[{
+  "output_filename": "anderson_john_individual_2024.pdf",
+  "ia_firm_name": "HOHIMER WEALTH MANAGEMENT",
+  "account_type_schwab_one": true,
+  "reg_individual": true,
+  "primary_first_name": "JOHN",
+  "primary_last_name": "ANDERSON",
+  "primary_ssn": "123-45-6789",
+  "primary_dob": "03/15/1975",
+  "primary_street_address": "456 PINE STREET",
+  "primary_city": "SEATTLE",
+  "primary_state": "WA",
+  "primary_zip": "98101",
+  "primary_country": "USA",
+  "primary_citizen_usa": true,
+  "primary_residence_usa": true,
+  "primary_employment_employed": true,
+  "primary_occupation_executive": true,
+  "source_salary": true,
+  "purpose_general": true,
+  "checks_one_card": true,
+  "activity_medium": true
+}]
+```
+
+#### Joint Account with Margin
+```json
+[{
+  "output_filename": "thompson_joint_margin_2024.pdf",
+  "account_type_margin": true,
+  "reg_joint_rights": true,
+  "primary_first_name": "DAVID",
+  "primary_last_name": "THOMPSON",
+  "secondary_first_name": "ELIZABETH",
+  "secondary_last_name": "THOMPSON",
+  "checks_two_cards": true
+}]
+```
+
+## Important Notes for AI Agents
+
+1. **Extract data from uploaded documents** carefully - look for:
+   - Full legal names (not nicknames unless specified)
+   - Current addresses (not mailing addresses unless different)
+   - Employment status and occupation details
+   - Existing account types to determine registration
+
+2. **Infer logical defaults**:
+   - Married couples → likely `reg_joint_rights`
+   - Single person → `reg_individual`
+   - For a minor → `reg_custodial`
+   - USA address → likely `primary_citizen_usa` and `primary_residence_usa`
+
+3. **Output efficiency**:
+   - Only include fields that need to be filled
+   - Group related accounts in single JSON array
+   - Use descriptive filenames that include: lastname_firstname_type_year.pdf
+
+4. **Quality checks**:
+   - Ensure SSN format is xxx-xx-xxxx
+   - Ensure dates are mm/dd/yyyy
+   - Ensure phone numbers have no escape characters
+   - Verify required fields based on account type

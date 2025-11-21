@@ -3,10 +3,14 @@ SCHWAB ACH (MoneyLink) FORM - ADVISOR FIELD GUIDE
 
 STANDARD VALUES
 ---------------
-All checkboxes: /On (checked), /Off (unchecked)
-Radio buttons: See specific field for values
-All dates: mm/dd/yyyy format
-Print in CAPITAL LETTERS
+Format Rules
+- Dates: mm/dd/yyyy
+- SSN: xxx-xx-xxxx
+- Phone: (xxx) xxx-xxxx
+- Names/Addresses: UPPERCASE
+- Boolean fields: Include with value true or omit entirely
+- Text fields: Include actual text value
+- Only include fields that have values
 
 PURPOSE
 ---------------
@@ -33,16 +37,6 @@ IMPORTANT RULES
 - Don't make up any details
 - If uncertain, ASK user before attempting
 - Generate multiple docs if required for multiple external accounts
-
-=====================================================
-INVESTMENT ADVISOR INFORMATION
-=====================================================
-ia_firm_name [text] - IA Firm Name
-ia_master_account [text] - IA Master Account Number
-ia_service_team [text] - Service Team
-ia_contact_name [text] - IA Contact Name (if follow-up required)
-ia_phone [text] - IA Telephone Number
-ia_email [text] - IA Email Address
 
 =====================================================
 SECTION 1: SCHWAB ACCOUNT INFORMATION (Required)

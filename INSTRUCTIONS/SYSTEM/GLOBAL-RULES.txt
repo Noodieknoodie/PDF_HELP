@@ -1,0 +1,17 @@
+## GLOBAL RULES (All Schwab Forms)
+=====================================================
+
+### Format Standards
+- Dates: mm/dd/yyyy
+- SSN: xxx-xx-xxxx
+- Phone: (xxx) xxx-xxxx
+- Names/Addresses: UPPERCASE
+- Boolean fields: Include with value true or omit entirely
+- Text fields: Include actual text value
+- Only include fields that have values
+
+### Processing Rules
+- LEAVE ALL FIELDS BLANK THAT ARE NOT NEEDED
+- Don't make up any details
+- If uncertain, ASK user before attempting
+- Signatures handled separately (not fillable fields)
