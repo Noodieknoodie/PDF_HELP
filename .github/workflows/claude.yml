@@ -33,7 +33,7 @@ jobs:
         uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          model: "claude-sonnet-4.5"   # Added line to specify Opus 4.1
+          model: "claude-opus-4-1-20250805"   # Added line to specify Opus 4.1
           timeout_minutes: "60"
           direct_prompt: |
             You've been mentioned in a GitHub discussion. Please analyze the context and provide helpful assistance.
