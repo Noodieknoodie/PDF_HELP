@@ -1,0 +1,99 @@
+PDF FORM FILLING - CORE MECHANICS (TESTED & VERIFIED)
+======================================================
+
+SUMMARY
+-------
+Use PyMuPDF (fitz), NOT fillpdf/pdfrw. PyMuPDF properly updates
+appearance streams so filled values are visually rendered.
+
+LIBRARY
+-------
+pip install pymupdf
+
+CORE MECHANICS
+--------------
+```python
+import fitz  # pymupdf
+
+def fill_pdf(input_path: str, output_path: str, data: dict) -> None:
+    """
+    Fill a PDF form with data dictionary.
+
+    Args:
+        input_path: Path to template PDF with form fields
+        output_path: Path for output filled PDF
+        data: Dict mapping field_name -> value
+              - Text fields: str value
+              - Checkboxes: True or field's "on" value (e.g., "Yes", "On")
+              - Radio buttons: The specific button value (e.g., "Yes", "Yes_2")
+    """
+    doc = fitz.open(input_path)
+
+    for page in doc:
+        for widget in page.widgets():
+            field_name = widget.field_name
+            if field_name in data:
+                widget.field_value = data[field_name]
+                widget.update()  # CRITICAL: updates appearance stream
+
+    doc.save(output_path)
+    doc.close()
+```
+
+FIELD TYPES
+-----------
+1. TEXT FIELDS: Pass string value directly
+   data["field_name"] = "JOHN DOE"
+
+2. CHECKBOXES: Pass True or the checkbox's "on" export value
+   data["checkbox_field"] = True
+
+3. RADIO BUTTONS: Pass the specific button's export value
+   data["is_owner_external"] = "Yes"      # First Yes in a group
+   data["is_identity_match"] = "Yes_2"    # Second Yes in a group
+
+DISCOVERING FIELD NAMES
+-----------------------
+```python
+import fitz
+doc = fitz.open("template.pdf")
+for page in doc:
+    for widget in page.widgets():
+        print(f"{widget.field_name}: {widget.field_type_string}")
+doc.close()
+```
+
+Or use fillpdf for quick listing (read-only):
+```python
+from fillpdf import fillpdfs
+fields = fillpdfs.get_form_fields("template.pdf")
+for name, value in fields.items():
+    print(f"{name}: {value}")
+```
+
+KEY POINTS
+----------
+1. ALWAYS call widget.update() after setting field_value
+2. Field names are CASE-SENSITIVE and must match exactly
+3. Only fill fields that exist - non-existent fields are silently ignored
+4. Template PDF must have fillable form fields (created in Acrobat/similar)
+5. Output preserves fillability unless you flatten
+
+WHAT FAILED (DO NOT USE)
+------------------------
+- fillpdf.write_fillable_pdf: Sets values but appearance streams not updated
+- fillpdf.flatten_pdf: Does not properly bake values into PDF
+- pdfrw: Low-level, doesn't handle appearance streams automatically
+- pypdf: Had dependency issues in test environment
+
+VERIFICATION
+------------
+After filling, verify programmatically:
+```python
+doc = fitz.open(output_path)
+for page in doc:
+    for widget in page.widgets():
+        if widget.field_name in expected_data:
+            assert widget.field_value == expected_data[widget.field_name]
+doc.close()
+```
